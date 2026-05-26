@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+<head>
+<h1>For My Cutie Pie Logesh ✨💖</h1>
+
+<style>
+body{
+    margin:0;
+    background:black;
+    color:white;
+    font-family:Arial;
+    text-align:center;
+    overflow:hidden;
+}
+
+h1{
+    margin-top:30px;
+    color:pink;
+    font-size:40px;
+    animation: glow 2s infinite;
+}
+
+@keyframes glow{
+    0%{text-shadow:0 0 10px pink;}
+    50%{text-shadow:0 0 25px hotpink;}
+    100%{text-shadow:0 0 10px pink;}
+}
+
+.container{
+    padding:20px;
+}
+
+.photo-row{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:20px;
+    margin-top:40px;
+}
+
+.photo-box{
+    width:200px;
+    height:280px;
+    border:3px solid pink;
+    border-radius:20px;
+    overflow:hidden;
+}
+
+.photo-box img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+button{
+    margin-top:30px;
+    padding:15px 30px;
+    border:none;
+    border-radius:30px;
+    background:linear-gradient(45deg,pink,hotpink);
+    color:white;
+    font-size:20px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+button:hover{
+    box-shadow:0 0 20px hotpink;
+    transform:scale(1.05);
+}
+
+/* ❤️ floating hearts */
+.heart {
+    position: fixed;
+    bottom: -10px;
+    color: red;
+    animation: floatUp 5s linear forwards;
+    opacity: 0.7;
+}
+
+@keyframes floatUp {
+    0% {transform: translateY(0);}
+    100% {transform: translateY(-100vh); opacity:0;}
+}
+
+/* 💌 FINAL POPUP MESSAGE */
+.final{
+    display:none;
+    position:fixed;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    width:90%;
+    max-height:70vh;
+    overflow-y:auto;
+    padding:20px;
+    font-size:24px;
+    line-height:35px;
+    background:rgba(0,0,0,0.85);
+    border:2px solid pink;
+    border-radius:20px;
+    animation: fade 1s ease-in;
+}
+
+/* scrollbar style */
+.final::-webkit-scrollbar {
+    width:5px;
+}
+.final::-webkit-scrollbar-thumb {
+    background:pink;
+    border-radius:10px;
+}
+
+@keyframes fade{
+    from{opacity:0; transform:translate(-50%,-40%);}
+    to{opacity:1; transform:translate(-50%,-50%);}
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<!-- 📸 PHOTO SECTION -->
+<div id="photoSection">
+
+<div class="photo-row">
+<div class="photo-box"><img src="1.jpg"></div>
+<div class="photo-box"><img src="2.jpg"></div>
+<div class="photo-box"><img src="3.jpg"></div>
+<div class="photo-box"><img src="4.jpg"></div>
+<div class="photo-box"><img src="5.jpg"></div>
+</div>
+
+<p style="color:#ffcce6; font-size:20px; margin-top:20px;">
+Life gave me many people… but you became my special one 💎💖
+</p>
+
+</div>
+
+<!-- 💌 FINAL MESSAGE -->
+<div class="final" id="finalText"></div>
+
+<button onclick="showMessage()">Click Me 😌</button>
+
+</div>
+
+<script>
+
+// ❤️ floating hearts
+function createHeart(){
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML = "❤";
+
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = (Math.random() * 20 + 10) + "px";
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 5000);
+}
+
+// normal hearts
+setInterval(createHeart, 400);
+
+// 💥 burst hearts
+function burstHearts(){
+    for(let i=0;i<40;i++){
+        setTimeout(createHeart, i * 50);
+    }
+}
+
+// ❤️ click button
+function showMessage(){
+
+    // hide photos
+    document.getElementById("photoSection").style.display="none";
+
+    // hide button 👇
+    document.querySelector("button").style.display="none";
+
+    // show message
+    const msg=document.getElementById("finalText");
+    msg.style.display="block";
+
+    msg.innerHTML=`
+    Dei anna 😭❤️<br><br>
+
+    Nee enaku just brother illa da…<br>
+    Konjam bodyguard, konjam best friend, konjam enemy 😏😂<br><br>
+
+    Sometimes nee romba irritate pannuva 😒<br>
+    Aana nee illana en life la romba empty ah feel aagum 🥺<br><br>
+
+    Unaku romba care irukum… aana adha kaamika theriyadhu 🤦‍♀️<br>
+    Adhanala dhaan nee konjam special 😌💖<br><br>
+
+    Enaku kashtam na nee iruka nu therinja podhum…<br>
+    Automatically strong ah feel aaguren 🫂✨<br><br>
+
+    Nee enaku blood brother illa…<br>
+    Aana heart la full ah iruka brother 💝<br><br>
+
+    Nee epovum happy ah sirichikite irukanum 😁<br>
+    And please enna vittu poga koodathu da 😭🤍<br><br>
+
+    Love you anna 🫂💖✨
+    `;
+
+    burstHearts();
+}
+  
+</script>
+
+</body>
+</html>
